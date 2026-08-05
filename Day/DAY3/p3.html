@@ -10,7 +10,7 @@
         <fieldset>
             <legend>Personal Information</legend>
             <p>
-                <input type="text" name="fullname" id="fullname" placeholder="ENTER YOUR FULL NAME" required>
+                <input type="text" name="fullname" id="fullname" placeholder="ENTER YOUR FULL NAME" minlength="2" maxlength="30" required>
             </p>
             <p>
                 <input type="email" name="emailid" id="emailid" placeholder="ENTER YOUR EMAIL ID" required>
@@ -19,7 +19,16 @@
                 <input type="password" name="mypassword" id="mypassword" placeholder="ENTER YOUR PASSWORD" required>
             </p>
             <p>
-                <input type="number" name="myage" id="myage" placeholder="ENTER YOUR AGE" required> 
+                <input type="number" name="myage" id="myage" placeholder="ENTER YOUR AGE" min="1" max="68" required> 
+            </p>
+            <p>
+                <input type="tel" name="phone" id="phone" 
+                pattern="[0-9]{10}"
+                placeholder="ENTER YOUR PHONE NUMBER" pattern="[0-9]{10}" required>
+
+            </p>
+            <p> 
+                <input type="date" id="dob" name="dob" required min="1999-01-01" max="2024-12-31">
             </p>
         </fieldset>
 
@@ -54,9 +63,18 @@
                     <option value="canada">Canada</option>
                 </select>
             </p>
-
-
+            <p>
+                <label for="message">Message:</label><br>
+                <textarea name="message" id="message" row="4" cols="30"></textarea>
+            </p>
         </fieldset>
+        <p>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </p>
+    </form>
+</body>
+</html>
 
 
     
