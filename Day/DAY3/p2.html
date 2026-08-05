@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms 2</title>
+</head>
+<body>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <p>
+                <input type="text" name="fullname" id="fullname" placeholder="ENTER YOUR FULL NAME" required>
+            </p>
+            <p>
+                <input type="email" name="emailid" id="emailid" placeholder="ENTER YOUR EMAIL ID" required>
+            </p>
+            <p>
+                <input type="password" name="mypassword" id="mypassword" placeholder="ENTER YOUR PASSWORD" required>
+            </p>
+            <p>
+                <input type="number" name="myage" id="myage" placeholder="ENTER YOUR AGE" required> 
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferences</legend>
+            <p>gender </p>
+            <p>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label>  
+            </p>
+            <p> 
+            <P>skills: </p>
+                <p> 
+                    <input type="checkbox" name="skills" id="html" value="html">
+                    <label for="html">HTML</label>  
+                    <input type="checkbox" name="skills" id="css" value="css">
+                    <label for="css">CSS</label> 
+                    <input type="checkbox" name="skills" id="js" value="js">
+                    <label for="js">JS</label>  
+                    <input type="checkbox" name="skills" id="python" value="python">
+                    <label for="python">Python</label>
+                </p>
+            <p>
+                
+                <label for="country">Select your country:</label>
+                <select name="country" id="country">
+                    <option value="india">India</option>
+                    <option value="usa">USA</option>
+                    <option value="uk">UK</option>
+                    <option value="canada">Canada</option>
+                </select>
+            </p>
+
+
+        </fieldset>
+
+
+    
+    
+    
+    
+    
+    
+    
+    </form>
+</body>
+</html>
