@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox | Display | flex-direction </title>
+    <style>
+        .container{
+            display: flex;
+            border: 2px solid rgb(21, 197, 209);
+            gap: 10px;
+            padding: 10px;
+        }
+        .item{
+            background-color: rgb(219, 49, 114);
+            color:rgb(107, 0, 139);
+            padding: 15px;
+        }
+        .container2{
+            display: flex;
+            border: 2px solid rgb(53, 107, 2);
+            gap: 10px;
+            padding: 10px;
+            /* column | row | row-reverse | column-reverse*/
+            flex-direction: column-reverse; 
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p>CSS Flexbox: is a one-dimentional layout system designed to arrange and align items
+        in a containter, either in a row or a column. It makes much easier to create
+        responsive, flexible layouts without complex positioning or floats.
+    </p>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+
+    <div class="container2">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+</body>
+</html>
