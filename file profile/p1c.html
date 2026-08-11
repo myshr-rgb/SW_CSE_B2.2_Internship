@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Shrusti M Y</title>
+
+    <style>
+        /* =====================================================
+           CSS VARIABLES  (Day 7 — :root / var())
+           ===================================================== */
+        :root {
+            --clr-primary: #f6a6c1;      /* soft pink   */
+            --clr-secondary: #c9b6f5;    /* soft lavender */
+            --clr-accent: #a8e6cf;       /* soft mint   */
+            --clr-bg: #fffaf7;           /* page background */
+            --clr-card: #ffffff;
+            --clr-text: #4a4458;
+            --clr-text-light: #7c7690;
+
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-pill: 999px;
+
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 48px;
+
+            --dur: 0.3s;
+        }
+
+        /* =====================================================
+           RESET  (Day 4 — universal selector)
+           ===================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        /* =====================================================
+           BASE  (Day 5 — text styling / units / colors)
+           ===================================================== */
+        body {
+            background-color: var(--clr-bg);
+            color: var(--clr-text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            color: var(--clr-text);
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            display: inline-block;
+            padding-bottom: var(--space-xs);
+            border-bottom: 3px solid var(--clr-accent);
+            border-radius: var(--radius-sm);
+        }
+
+        /* centers the heading + underline as a unit (Day 6 — flexbox) */
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: var(--space-lg) var(--space-md);
+            gap: var(--space-md);
+        }
+
+        /* =====================================================
+           NAVIGATION  (Day 6 — flexbox)
+           ===================================================== */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-sm);
+            background-color: var(--clr-card);
+            border-bottom: 2px solid var(--clr-accent);
+        }
+
+        /* Day 4 — descendant selector (nav a) + Day 5 — pseudo-class */
+        nav a {
+            text-decoration: none;
+            color: var(--clr-text);
+            font-weight: bold;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-pill);
+            transition: background-color var(--dur) ease, color var(--dur) ease, transform var(--dur) ease;
+        }
+
+        nav a:hover {
+            background-color: var(--clr-accent);
+            color: var(--clr-card);
+            transform: translateY(-3px);
+        }
+
+        /* =====================================================
+           HERO / HEADER  (Day 6 — flexbox, Day 5 — gradient text)
+           ===================================================== */
+        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-sm);
+            min-height: 60vh;
+            text-align: center;
+            padding: var(--space-lg) var(--space-md);
+            background-image: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            /* gradient text-clip, same technique as repo's .gradient class */
+            background-image: linear-gradient(135deg, var(--clr-card), var(--clr-bg));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        header p {
+            color: var(--clr-card);
+            font-size: 1.1rem;
+        }
+
+        header a {
+            text-decoration: none;
+            background-color: var(--clr-card);
+            color: var(--clr-primary);
+            font-weight: bold;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-pill);
+            border: 2px solid var(--clr-card);
+            transition: transform var(--dur) ease, box-shadow var(--dur) ease;
+        }
+
+        header a:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* =====================================================
+           ABOUT SECTION  (Day 6 — flexbox + box model)
+           ===================================================== */
+        #about {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: var(--clr-card);
+        }
+
+        /* styled placeholder container for the profile image (Day 6 — box model) */
+        .profile-frame {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 220px;
+            height: 220px;
+            padding: var(--space-xs);
+            background-image: linear-gradient(135deg, var(--clr-secondary), var(--clr-accent));
+            border: 4px dashed var(--clr-card);
+            border-radius: var(--radius-pill);
+            transition: transform var(--dur) ease, box-shadow var(--dur) ease;
+        }
+
+        .profile-frame:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .profile-frame img {
+            width: 180px;
+            height: 180px;
+            border-radius: var(--radius-pill);
+            border: 3px solid var(--clr-card);
+            background-color: var(--clr-bg);
+        }
+
+        .about-text {
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* =====================================================
+           SKILLS SECTION  (Day 6 — CSS Grid, auto-fit / minmax)
+           ===================================================== */
+        #skills ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--space-sm);
+            width: 100%;
+            max-width: 500px;
+            list-style: none;
+        }
+
+        #skills li {
+            text-align: center;
+            background-color: var(--clr-bg);
+            color: var(--clr-text);
+            padding: var(--space-sm);
+            border: 2px solid var(--clr-secondary);
+            border-radius: var(--radius-md);
+            transition: background-color var(--dur) ease, color var(--dur) ease, transform var(--dur) ease;
+        }
+
+        #skills li:hover {
+            background-color: var(--clr-secondary);
+            color: var(--clr-card);
+            transform: translateY(-4px);
+        }
+
+        /* =====================================================
+           PROJECTS SECTION  (Day 6 — CSS Grid)
+           ===================================================== */
+        #projects {
+            background-color: var(--clr-card);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--space-md);
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .project-card {
+            background-color: var(--clr-bg);
+            padding: var(--space-md);
+            border: 2px solid var(--clr-accent);
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: transform var(--dur) ease, box-shadow var(--dur) ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: var(--space-sm);
+            text-decoration: none;
+            color: var(--clr-card);
+            background-color: var(--clr-primary);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-pill);
+            transition: background-color var(--dur) ease, transform var(--dur) ease;
+        }
+
+        .project-card a:hover {
+            background-color: var(--clr-secondary);
+            transform: scale(1.05);
+        }
+
+        /* =====================================================
+           CONTACT SECTION  (Day 6 — flexbox + grid, Day 5 — pseudo-class)
+           ===================================================== */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            width: 100%;
+            max-width: 500px;
+            background-color: var(--clr-card);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            border: 2px solid var(--clr-secondary);
+        }
+
+        /* two-column layout for name & email via CSS Grid (Day 6) */
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: var(--space-sm);
+        }
+
+        .form-row > div {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            text-align: left;
+        }
+
+        label {
+            font-size: 0.9rem;
+            color: var(--clr-text-light);
+        }
+
+        /* Day 4 — attribute selector */
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            padding: var(--space-xs);
+            border: 2px solid var(--clr-secondary);
+            border-radius: var(--radius-sm);
+            background-color: var(--clr-bg);
+            color: var(--clr-text);
+            transition: border-color var(--dur) ease, box-shadow var(--dur) ease;
+        }
+
+        /* Day 5 — pseudo-class selector */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--clr-primary);
+            box-shadow: 0 0 0 3px rgba(246, 166, 193, 0.3);
+        }
+
+        button {
+            align-self: center;
+            padding: var(--space-sm) var(--space-lg);
+            background-color: var(--clr-primary);
+            color: var(--clr-card);
+            border: none;
+            border-radius: var(--radius-pill);
+            font-weight: bold;
+            transition: background-color var(--dur) ease, transform var(--dur) ease;
+        }
+
+        button:hover {
+            background-color: var(--clr-secondary);
+            transform: translateY(-3px) scale(1.03);
+        }
+
+        /* =====================================================
+           FOOTER  (Day 6 — flexbox)
+           ===================================================== */
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--space-md);
+            background-color: var(--clr-secondary);
+            color: var(--clr-card);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header>
+        <h1>Hi, I'm SHRUSTI M Y 👋</h1>
+        <p>I'm a passionate web developer from Mysore.</p>
+        <a href="#contact">Hire Me</a>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="profile-frame">
+            <img src="profile.jpg" alt="Profile photo of SHRUSTI M Y">
+        </div>
+        <p class="about-text">I love building things on the web. Currently learning HTML, CSS, JavaScript, and React.</p>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React</li>
+        </ul>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>Description of project 1</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Have a project in mind? Let's talk!</p>
+
+        <form action="#" method="POST">
+            <div class="form-row">
+                <div>
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div>
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+            </div>
+
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+                <option value="">-- Select a topic --</option>
+                <option value="hire">I want to hire you</option>
+                <option value="collab">I want to collaborate</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+
+            <button type="submit">Send Message 🚀</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 SHRUSTI M Y. All rights reserved.</p>
+    </footer>
+</body>
+</html>

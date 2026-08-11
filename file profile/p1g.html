@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Shrusti M Y</title>
+    <style>
+        /* =========================================================
+           1. CSS VARIABLES & RESET
+           ========================================================= */
+        :root {
+            /* Palette: Dark theme with soft kawaii pastel accents */
+            --bg-main: #0f0c20;
+            --bg-card: #181530;
+            --bg-input: #231f42;
+            --text-primary: #f8f9fa;
+            --text-secondary: #c3c1d7;
+            
+            --accent-pink: #f472b6;
+            --accent-purple: #c084fc;
+            --accent-cyan: #38bdf8;
+            --gradient-primary: linear-gradient(135deg, #c084fc 0%, #f472b6 100%);
+            --gradient-button: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 30px;
+            --border-radius-full: 50%;
+            
+            --transition-speed: 0.3s ease;
+            --box-shadow-glow: 0 8px 25px rgba(192, 132, 252, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* =========================================================
+           2. NAVIGATION BAR (Flexbox & Sticky Positioning)
+           ========================================================= */
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.2rem 8%;
+            background-color: rgba(15, 12, 32, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-speed);
+        }
+
+        nav a:hover {
+            color: var(--accent-pink);
+        }
+
+        /* =========================================================
+           3. SECTION CONTAINER DEFAULTS
+           ========================================================= */
+        section, header {
+            padding: 5rem 8%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* =========================================================
+           4. HERO SECTION (Flexbox Center Layout)
+           ========================================================= */
+        header {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 1.2rem;
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        header a[href="#contact"], .project-card a {
+            display: inline-block;
+            background: var(--gradient-button);
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            border-radius: var(--border-radius-lg);
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        header a[href="#contact"]:hover, .project-card a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+        }
+
+        /* =========================================================
+           5. ABOUT SECTION & PROFILE IMAGE CONTAINER
+           ========================================================= */
+        #about {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Styled Kawaii Profile Frame */
+        #about img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: var(--border-radius-full);
+            padding: 5px;
+            background: var(--gradient-primary);
+            box-shadow: var(--box-shadow-glow);
+            margin: 1.5rem 0;
+            transition: transform var(--transition-speed);
+        }
+
+        #about img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        #about p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+        }
+
+        /* =========================================================
+           6. SKILLS SECTION (Flexbox Pills Layout)
+           ========================================================= */
+        #skills ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        #skills li {
+            background-color: var(--bg-card);
+            color: var(--accent-purple);
+            border: 1px solid rgba(192, 132, 252, 0.2);
+            padding: 0.6rem 1.4rem;
+            border-radius: var(--border-radius-lg);
+            font-weight: 600;
+            transition: all var(--transition-speed);
+        }
+
+        #skills li:hover {
+            background-color: var(--accent-purple);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(192, 132, 252, 0.3);
+        }
+
+        /* =========================================================
+           7. PROJECTS SECTION (CSS Grid Layout)
+           ========================================================= */
+        #projects {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: var(--border-radius-md);
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+            transition: transform var(--transition-speed), border-color var(--transition-speed);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-pink);
+        }
+
+        .project-card h3 {
+            color: var(--text-primary);
+            font-size: 1.4rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+        }
+
+        /* =========================================================
+           8. CONTACT SECTION & FORM STYLING
+           ========================================================= */
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            max-width: 550px;
+            margin-top: 1.5rem;
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        #contact label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: -0.5rem;
+        }
+
+        #contact input, 
+        #contact select, 
+        #contact textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background-color: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-sm);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        #contact input:focus, 
+        #contact select:focus, 
+        #contact textarea:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 10px rgba(192, 132, 252, 0.3);
+        }
+
+        #contact button {
+            background: var(--gradient-primary);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.9rem;
+            border: none;
+            border-radius: var(--border-radius-lg);
+            cursor: pointer;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            margin-top: 0.5rem;
+        }
+
+        #contact button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-glow);
+        }
+
+        /* =========================================================
+           9. FOOTER
+           ========================================================= */
+        footer {
+            text-align: center;
+            padding: 2.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header>
+        <h1>Hi, I'm SHRUSTI M Y 👋</h1>
+        <p>I'm a passionate web developer from Mysore.</p>
+        <a href="#contact">Hire Me</a>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>About Me</h2>
+        <img src="profile.jpg" alt="Profile photo of SHRUSTI M Y" width="200">
+        <p>I love building things on the web. Currently learning HTML, CSS, JavaScript, and React.</p>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React</li>
+        </ul>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-card">
+            <h3>Project 1</h3>
+            <p>Description of project 1</p>
+            <a href="#">View Project</a>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Have a project in mind? Let's talk!</p>
+
+        <form action="#" method="POST">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+                <option value="">-- Select a topic --</option>
+                <option value="hire">I want to hire you</option>
+                <option value="collab">I want to collaborate</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+
+            <button type="submit">Send Message 🚀</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 SHRUSTI M Y. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
