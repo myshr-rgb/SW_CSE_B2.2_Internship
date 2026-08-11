@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transforms</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 20px;
+            background-color: rgb(124, 159, 224);
+            border: 2px solid black;
+            border-radius: 10px;
+            transform:translateX(49px);
+           
+            
+
+        }
+        .box1{
+            width: 300px;
+            height: 20px;
+            background-color: rgb(231, 168, 223);
+            transform: translateY(49px);
+            border-radius: 10px;
+            border: 2px solid black;
+          
+        }
+
+        .box2{
+            width: 300px;
+            height: 20px;
+            background-color: rgb(137, 230, 183);
+            transform: translateX(49px) translateY(49px);
+            border-radius: 10px;
+            border: 2px solid black;
+
+        }
+        
+        .box3{
+            margin-top: 200px;
+            margin-left: 100px;
+            transform:scale3d(1.5, 1.5, 1.5);
+
+            width: 300px;
+            height: 200px;
+            background-color: rgb(38, 226, 217);
+            border-radius: 10px;
+            border: 2px solid black;
+
+        }
+        .box4{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(207, 129, 28);
+            /* 
+                skew(x,y) | skewX() | skewY()
+            */
+            transform: skew(5deg, 10deg);
+        }
+
+    </style>
+</head>
+<body>
+    <P> CSS Transforms: </P>
+    <p> css transforms allow you to rotate, scale, and translate elements </p>
+    <br>
+    <div class="box1">
+         box 1 hello everyone i am learning css transforms
+
+    </div>
+    
+    <div class="box">
+         hello everyone i am learning css transforms
+    </div>
+
+    <div class="box2">
+         hello everyone i am learning css transforms
+    </div>
+
+    <div class="box3">
+        box box 
+    </div>
+
+    <div class="box4">
+        box box 4 4 4
+    </div>
+
+
+
+
+</body>
+</html>
