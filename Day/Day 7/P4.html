@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css variables</title>
+    <style>
+        :root {
+            --primary-color:#10bfd6;
+            --secondary-color:#67e767;
+            --spacing: 16px;
+            --border-radius: 6px;
+        }
+        button{
+            background-color: var(--primary-color);
+            padding: var(--spacing);
+            border-radius: var(--border-radius);
+        }
+        a{
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <P> css variables</P>
+    <p>CSS Variables: custom properties, lets us store reusable CSS: colors, spacing,font sizes
+        shadows,animation settings.
+        <!-- Basic syntax:
+        :root {
+            --primary-color:#2563eb;
+            --spacing: 16px;
+            --border-radius: 6px;
+        }
+        button{
+            background-color: var(--primary-color);
+            padding: var(--spacing);
+            border-radius: var(--border-radius);
+        } -->
+        <button>Click me</button>
+        <a href="">Explore more</a>
+    </p>
+
+</body>
+</html>
