@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Shrusti M Y</title>
+
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        
+        body {
+            background-color: #fffaf7; 
+            color: #4a4458; 
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            color: #4a4458;
+        }
+
+        
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+            border-bottom: 3px solid #a8e6cf; 
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        
+        nav {
+            background-color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #a8e6cf;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a4458;
+            font-weight: bold;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background-color: #a8dfe6; 
+        }
+
+        /* Hero  */
+        header {
+            background-image: linear-gradient(135deg, #f6a6c1, #c9b6f5);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #4a4458;
+        }
+
+        header p {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+        }
+
+        header a {
+            background-color: #ffffff;
+            color: #f6a6c1;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        header a:hover {
+            background-color: #4a4458;
+            color: #ffffff;
+        }
+
+        /* About Section */
+        #about {
+            background-color: #ffffff;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 40%;
+            border: 5px solid #c9b6f5; 
+            margin-bottom: 15px;
+        }
+
+        
+        #skills ul {
+            list-style: none;
+        }
+
+        #skills li {
+            display: inline-block;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            margin: 5px;
+            border: 2px solid #c9b6f5;
+            border-radius: 15px;
+        }
+
+        #skills li:hover {
+            background-color: #c9b6f5;
+            color: #ffffff;
+        }
+
+        #projects {
+            background-color: #ffffff;
+        }
+
+        .project-card {
+            background-color: #fffaf7;
+            border: 2px solid #dea7f8;
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto; 
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #f6a6c1;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .project-card a:hover {
+            background-color: #c9b6f5;
+        }
+
+       
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 2px solid #c9b6f5;
+            border-radius: 15px;
+            max-width: 400px;
+            margin: 0 auto; 
+            text-align: left;
+        }
+
+        form label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #4a4458;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #c9b6f5;
+            border-radius: 8px;
+            background-color: #fffaf7;
+        }
+
+        form button {
+            background-color: #f6a6c1;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #c9b6f5;
+        }
+
+        
+        footer {
+            background-color: #c9b6f5;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header>
+        <h1>Hi, I'm SHRUSTI M Y 👋 </h1>
+        <p>I'm a second-year engineering student at MSRUAS exploring where engineering logic meets front-end design. I may be new to web development, but I'm obsessed with learning, building, and making the web a little more interesting.</p>
+        <a href="#contact">Hire Me</a>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>About Me</h2>
+        <br>
+        <img src="/SW_CSE_B2.2_Internship/images/Screenshot 2026-08-11 220212.jpg" alt="Profile photo of SHRUSTI M Y" class="profile-pic">
+        <p>"As an engineering student at MSRUAS, I bridge structured logic with intuitive design. I am currently deepening my expertise in modern web technologies—including HTML, CSS, JavaScript, and React—to craft efficient, engaging digital experiences."</p>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Django</li>
+            <li>Python</li>
+            <li>C programming</li>
+            <li>Dev ops</li>
+            <li>LLM</li>
+            <li> Ardino uno</li>
+            <li> learning in process ☺️</li>
+        </ul>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-card">
+            <h3>Project 1</h3>
+            <p>Description of project 1</p>
+            <a href="#">View Project</a>
+        </div>
+
+        <h2>My Projects</h2>
+        <div class="project-card">
+            <h3>Project 2</h3>
+            <p>Description of project 2</p>
+            <a href="#">View Project</a>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>🤔HMMMM..,Have a project in mind? Let's talk!</p>
+
+        <!-- Simplified Form Layout -->
+        <form action="#" method="POST">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+                <option value="">-- Select a topic --</option>
+                <option value="hire">I want to hire you</option>
+                <option value="collab">I want to collaborate</option>
+                <option value="connect">I want to connect with you </option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+
+            <button type="submit">Send Message 🚀</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 SHRUSTI M Y. All rights reserved.</p>
+    </footer>
+</body>
+</html>
