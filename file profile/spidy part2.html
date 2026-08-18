@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Shrusti M Y 🕷️⚡</title>
+
+    <!-- Futuristic Tech Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        /* Futuristic Brand New Day / Cyber-Spidey Palette */
+        :root {
+            --neon-red: #ff0055;
+            --cyber-blue: #00f3ff;
+            --deep-space: #060810;
+            --glass-bg: rgba(15, 20, 32, 0.75);
+            --glass-border: rgba(0, 243, 255, 0.25);
+            --text-main: #e2e8f0;
+            --neon-glow-red: rgba(255, 0, 85, 0.4);
+            --neon-glow-blue: rgba(0, 243, 255, 0.4);
+        }
+
+        body {
+            background-color: var(--deep-space);
+            color: var(--text-main);
+            line-height: 1.6;
+            /* Cyber Grid & Glowing Nebula Background */
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at 10% 20%, rgba(255, 0, 85, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 243, 255, 0.15) 0%, transparent 40%);
+            background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        section {
+            padding: 70px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+            border-bottom: 2px solid var(--cyber-blue);
+            display: inline-block;
+            padding-bottom: 8px;
+            text-shadow: 0 0 12px var(--cyber-blue);
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 2px;
+            background: var(--neon-red);
+            box-shadow: 0 0 10px var(--neon-red);
+        }
+
+        /* Interactive Sticker / Picture Styling */
+        .sticker-img {
+            width: 45px;
+            height: 45px;
+            vertical-align: middle;
+            margin: 0 10px;
+            filter: drop-shadow(0 0 8px var(--cyber-blue));
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .sticker-img:hover {
+            transform: scale(1.3) rotate(15deg);
+            filter: drop-shadow(0 0 12px var(--neon-red));
+        }
+
+        /* Futuristic HUD Floating Music Widget */
+        .music-widget {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--glass-bg);
+            border: 1px solid var(--cyber-blue);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 8px 18px;
+            box-shadow: 0 0 20px var(--neon-glow-blue);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .music-widget span {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--cyber-blue);
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px var(--cyber-blue);
+        }
+
+        audio {
+            height: 28px;
+            width: 190px;
+            filter: invert(100%) hue-rotate(180deg) brightness(1.2);
+        }
+
+        /* Glassmorphism Cyber Navigation */
+        nav {
+            background: rgba(6, 8, 16, 0.85);
+            padding: 18px;
+            text-align: center;
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        nav a {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            padding: 8px 20px;
+            margin: 0 8px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+            background: rgba(255, 0, 85, 0.15);
+            border-color: var(--neon-red);
+            box-shadow: 0 0 15px var(--neon-glow-red);
+            text-shadow: 0 0 8px var(--neon-red);
+        }
+
+        /* Hero / Tech Header */
+        header {
+            background: linear-gradient(180deg, rgba(6,8,16,0.3) 0%, var(--deep-space) 100%),
+                        radial-gradient(circle, rgba(255,0,85,0.2) 0%, transparent 60%);
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-shadow: 0 0 20px var(--neon-glow-red), 0 0 40px var(--neon-red);
+        }
+
+        header p {
+            color: #cbd5e1;
+            font-size: 1.25rem;
+            max-width: 750px;
+            margin: 0 auto 35px auto;
+            font-weight: 500;
+        }
+
+        header a {
+            font-family: 'Orbitron', sans-serif;
+            background: transparent;
+            color: var(--cyber-blue);
+            text-decoration: none;
+            padding: 14px 35px;
+            border-radius: 4px;
+            font-weight: 700;
+            border: 2px solid var(--cyber-blue);
+            box-shadow: 0 0 15px var(--neon-glow-blue);
+            transition: all 0.3s ease;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        header a:hover {
+            background: var(--cyber-blue);
+            color: var(--deep-space);
+            box-shadow: 0 0 30px var(--cyber-blue);
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        #about {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-pic {
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            border: 3px solid var(--neon-red); 
+            box-shadow: 0 0 25px var(--neon-glow-red), inset 0 0 15px var(--neon-glow-red);
+            margin-bottom: 25px;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .profile-pic:hover {
+            border-color: var(--cyber-blue);
+            box-shadow: 0 0 30px var(--cyber-blue);
+        }
+
+        .about-text {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        #skills ul {
+            list-style: none;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        #skills li {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            display: inline-block;
+            background: var(--glass-bg);
+            color: #ffffff;
+            padding: 12px 22px;
+            margin: 8px;
+            border: 1px solid var(--glass-border);
+            border-left: 3px solid var(--cyber-blue);
+            border-radius: 4px;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        #skills li:hover {
+            border-color: var(--neon-red);
+            border-left-color: var(--neon-red);
+            box-shadow: 0 0 15px var(--neon-glow-red);
+            transform: translateY(-4px);
+            color: var(--cyber-blue);
+        }
+
+        /* Projects Section */
+        #projects {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .projects-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+        }
+
+        .project-card {
+            background: rgba(10, 14, 26, 0.8);
+            border: 1px solid var(--glass-border);
+            border-top: 3px solid var(--neon-red);
+            border-radius: 8px;
+            padding: 30px;
+            width: 320px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--cyber-blue);
+            box-shadow: 0 0 25px var(--neon-glow-blue);
+        }
+
+        .project-card h3 {
+            color: var(--cyber-blue);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .project-card p {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .project-card a {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            display: inline-block;
+            background: transparent;
+            color: var(--neon-red);
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 4px;
+            border: 1px solid var(--neon-red);
+            transition: all 0.3s ease;
+        }
+
+        .project-card a:hover {
+            background: var(--neon-red);
+            color: #ffffff;
+            box-shadow: 0 0 12px var(--neon-red);
+        }
+
+        /* Futuristic Contact Form */
+        form {
+            background: rgba(10, 14, 26, 0.85);
+            padding: 35px;
+            border: 1px solid var(--glass-border);
+            border-top: 3px solid var(--cyber-blue);
+            border-radius: 8px;
+            max-width: 480px;
+            margin: 20px auto 0 auto; 
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        form label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            color: var(--cyber-blue);
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            background-color: rgba(6, 8, 16, 0.9);
+            color: #fff;
+            outline: none;
+            font-size: 1rem;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        form input:focus, form select:focus, form textarea:focus {
+            border-color: var(--neon-red);
+            box-shadow: 0 0 10px var(--neon-glow-red);
+        }
+
+        form button {
+            font-family: 'Orbitron', sans-serif;
+            background: var(--neon-red);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 4px;
+            font-weight: 700;
+            margin-top: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px var(--neon-glow-red);
+        }
+
+        form button:hover {
+            background: var(--cyber-blue);
+            color: var(--deep-space);
+            box-shadow: 0 0 20px var(--cyber-blue);
+        }
+
+        /* Futuristic Footer */
+        footer {
+            background-color: rgba(6, 8, 16, 0.95);
+            color: #64748b;
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid var(--glass-border);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HUD FLOATING MUSIC PLAYER WIDGET -->
+    <div class="music-widget">
+        <span>AUDIO_STREAM //</span>
+        <audio controls loop>
+            <source src="/SW_CSE_B2.2_Internship/file profile/ytmp3free.cc_onerepublic-counting-stars-youtubemp3free.org.mp3" type="audio/mpeg">
+            Your browser does not support audio.
+        </audio>c
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header>
+        <h1>
+            Hi, I'm SHRUSTI M Y 
+            <!-- Picture Sticker Placeholder -->
+            <img src="https://cdn-icons-png.flaticon.com/512/1090/1090806.png" alt="Spider Tech Icon" class="sticker-img">
+        </h1>
+        <p>I'm a second-year engineering student at MSRUAS exploring where engineering logic meets front-end design. I may be new to web development, but I'm obsessed with learning, building, and making the web a little more interesting.</p>
+        <a href="#contact">INITIALIZE CONTACT ⚡</a>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>
+            About Me 
+            <!-- Picture Sticker Placeholder -->
+            <img src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png" alt="Cyber Web Icon" class="sticker-img">
+        </h2>
+        <br>
+        <div class="profile-container">
+            <img src="/SW_CSE_B2.2_Internship/images/Screenshot 2026-08-11 220212.jpg" alt="Profile photo of SHRUSTI M Y" class="profile-pic">
+        </div>
+        <p class="about-text">"As an engineering student at MSRUAS, I bridge structured logic with intuitive design. I am currently deepening my expertise in modern web technologies—including HTML, CSS, JavaScript, and React—to craft efficient, engaging digital experiences."</p>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <h2>Tech Matrix ⚡</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Django</li>
+            <li>Python</li>
+            <li>C Programming</li>
+            <li>DevOps</li>
+            <li>LLM</li>
+            <li>Arduino Uno</li>
+            <li>Learning in Progress ☺️</li>
+        </ul>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <h2>
+            Projects 
+            <!-- Picture Sticker Placeholder -->
+            <img src="https://cdn-icons-png.flaticon.com/512/1090/1090806.png" alt="Spider Tech Icon" class="sticker-img">
+        </h2>
+        
+        <div class="projects-wrapper">
+            <div class="project-card">
+                <h3>Project 01 //</h3>
+                <p>Description of project 1</p>
+                <a href="#">LAUNCH WEB PAGE</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Project 02 //</h3>
+                <p>Description of project 2</p>
+                <a href="#">LAUNCH WEB PAGE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>
+            Contact 
+            <!-- Picture Sticker Placeholder -->
+            <img src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png" alt="Cyber Web Icon" class="sticker-img">
+        </h2>
+        <p>🤔 HMMMM... Have a project in mind? Let's talk!</p>
+
+        <form action="#" method="POST">
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="subject">SUBJECT</label>
+            <select id="subject" name="subject">
+                <option value="">-- Select a topic --</option>
+                <option value="hire">I want to hire you</option>
+                <option value="collab">I want to collaborate</option>
+                <option value="connect">I want to connect with you</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="message">MESSAGE</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+
+            <button type="submit">TRANSMIT MESSAGE 🕸️</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 SHRUSTI M Y // ALL RIGHTS RESERVED</p>
+    </footer>
+
+</body>
+</html>

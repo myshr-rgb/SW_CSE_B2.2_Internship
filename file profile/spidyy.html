@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Shrusti M Y 🕷️</title>
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+        }
+
+        /* Spider-Man Color Palette */
+        :root {
+            --spider-red: #e62429;
+            --spider-blue: #0055ff;
+            --dark-suit: #0d0e12;
+            --card-bg: #181a20;
+            --text-light: #f0f0f0;
+            --spider-glow: rgba(230, 36, 41, 0.4);
+        }
+
+        body {
+            background-color: var(--dark-suit);
+            color: var(--text-light);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(230, 36, 41, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(0, 85, 255, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3 {
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        section h2 {
+            margin-bottom: 25px;
+            color: var(--spider-red);
+            border-bottom: 3px solid var(--spider-blue);
+            display: inline-block;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(230, 36, 41, 0.5);
+        }
+
+        /* Little Sticker Pictures Styling */
+        .sticker-img {
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+            margin: 0 8px;
+            filter: drop-shadow(0 0 6px var(--spider-red));
+            transition: transform 0.3s ease;
+        }
+
+        .sticker-img:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        /* Fixed Music Player Widget */
+        .music-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 2px solid var(--spider-red);
+            border-radius: 30px;
+            padding: 8px 15px;
+            box-shadow: 0 0 15px var(--spider-glow);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .music-widget span {
+            font-size: 0.85rem;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        audio {
+            height: 30px;
+            width: 200px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(13, 14, 18, 0.95);
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid var(--spider-red);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: bold;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover {
+            background-color: var(--spider-red);
+            color: #ffffff;
+            box-shadow: 0 0 10px var(--spider-red);
+            border-color: #ffffff;
+        }
+
+        /* Hero / Header Section */
+        header {
+            background: linear-gradient(135deg, rgba(138, 2, 7, 0.85), rgba(0,85,255,0.85)),
+                        url('https://images.unsplash.com/photo-1604200213928-ba3cf4fc8436?auto=format&fit=crop&q=80&w=1000') center/cover;
+            padding: 90px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--spider-red);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px #000;
+        }
+
+        header p {
+            color: #ffffff;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            text-shadow: 1px 1px 4px #000;
+        }
+
+        header a {
+            background-color: var(--spider-red);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 15px var(--spider-red);
+            transition: 0.3s;
+        }
+
+        header a:hover {
+            background-color: var(--spider-blue);
+            box-shadow: 0 0 15px var(--spider-blue);
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid #222;
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--spider-red); 
+            box-shadow: 0 0 20px var(--spider-glow);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .about-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            color: #ccc;
+        }
+
+        /* Skills Section */
+        #skills ul {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #skills li {
+            display: inline-block;
+            background-color: var(--card-bg);
+            color: #fff;
+            padding: 10px 20px;
+            margin: 8px;
+            border: 2px solid var(--spider-blue);
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        #skills li:hover {
+            background-color: var(--spider-red);
+            border-color: #fff;
+            box-shadow: 0 0 12px var(--spider-red);
+            transform: translateY(-3px);
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: var(--card-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .projects-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+        .project-card {
+            background-color: var(--dark-suit);
+            border: 2px solid var(--spider-red);
+            border-radius: 15px;
+            padding: 25px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--spider-glow);
+        }
+
+        .project-card h3 {
+            color: var(--spider-blue);
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #bbb;
+            font-size: 0.95rem;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: var(--spider-red);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .project-card a:hover {
+            background-color: var(--spider-blue);
+        }
+
+        /* Contact Section */
+        form {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border: 2px solid var(--spider-blue);
+            border-radius: 15px;
+            max-width: 450px;
+            margin: 20px auto 0 auto; 
+            text-align: left;
+            box-shadow: 0 0 15px rgba(0, 85, 255, 0.2);
+        }
+
+        form label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background-color: var(--dark-suit);
+            color: #fff;
+            outline: none;
+        }
+
+        form input:focus, form select:focus, form textarea:focus {
+            border-color: var(--spider-red);
+            box-shadow: 0 0 8px var(--spider-glow);
+        }
+
+        form button {
+            background-color: var(--spider-red);
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            background-color: var(--spider-blue);
+            box-shadow: 0 0 10px var(--spider-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050608;
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid var(--spider-red);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FLOATING MUSIC PLAYER WIDGET -->
+    <div class="music-widget">
+        <span>🎧 Music</span>
+        <!-- Paste your audio file URL or MP3 link into the src attribute below -->
+        <audio controls loop>
+            <source src="spider_man_theme.mp3" type="audio/mpeg">
+            Your browser does not support audio.
+        </audio>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header>
+        <h1>
+            Hi, I'm SHRUSTI M Y 
+            <!-- Picture Sticker Placeholder -->
+            <img src="https://cdn-icons-png.flaticon.com/512/1090/1090806.png" alt="Spider Icon" class="sticker-img">
+        </h1>
+        <p>I'm a second-year engineering student at MSRUAS exploring where engineering logic meets front-end design. I may be new to web development, but I'm obsessed with learning, building, and making the web a little more interesting.</p>
+        <a href="#contact">Hire Me 🕷️</a>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>
+            About Me 
+            <!-- Picture Sticker Placeholder -->
+            <img src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png" alt="Spider Web Icon" class="sticker-img">
+        </h2>
+        <br>
+        <div class="profile-container">
+            <img src="/SW_CSE_B2.2_Internship/images/Screenshot 2026-08-11 220212.jpg" alt="Profile photo of SHRUSTI M Y" class="profile-pic">
+        </div>
+        <p class="about-text">"As an engineering student at MSRUAS, I bridge structured logic with intuitive design. I am currently deepening my expertise in modern web technologies—including HTML, CSS, JavaScript, and React—to craft efficient, engaging digital experiences."</p>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <h2>My Web Powers ⚡</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Django</li>
+            <li>Python</li>
+            <li>C Programming</li>
+            <li>DevOps</li>
+            <li>LLM</li>
+            <li>Arduino Uno</li>
+            <li>Learning in progress ☺️</li>
+        </ul>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <h2>
+            My Projects 
+            <!-- Picture Sticker Placeholder -->
+            <img src="https://cdn-icons-png.flaticon.com/512/1090/1090806.png" alt="Spider Icon" class="sticker-img">
+        </h2>
+        
+        <div class="projects-wrapper">
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>Description of project 1</p>
+                <a href="#">View Web Page</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Description of project 2</p>
+                <a href="#">View Web Page</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>
+            Contact Me 
+            <!-- Picture Sticker Placeholder -->
+            <img src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png" alt="Spider Web Icon" class="sticker-img">
+        </h2>
+        <p>🤔 HMMMM... Have a project in mind? Let's talk!</p>
+
+        <form action="#" method="POST">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+                <option value="">-- Select a topic --</option>
+                <option value="hire">I want to hire you</option>
+                <option value="collab">I want to collaborate</option>
+                <option value="connect">I want to connect with you</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+
+            <button type="submit">Send Message 🕸️</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 SHRUSTI M Y. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
